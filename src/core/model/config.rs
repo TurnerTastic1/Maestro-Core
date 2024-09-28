@@ -2,7 +2,7 @@ use serde::{Serialize, Deserialize};
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Config {
-    config_file_path: String,
+    pub(crate) config_file_path: String,
 }
 
 impl Config {
