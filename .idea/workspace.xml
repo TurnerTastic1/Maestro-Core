@@ -9,10 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="add172b7-060c-472c-af21-794f6c542358" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/config/store.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/config/store.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/model/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/model/mod.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,7 +213,7 @@
       <option name="presentableId" value="Default" />
       <updated>1727458428048</updated>
       <workItem from="1727458429069" duration="10963000" />
-      <workItem from="1727501013280" duration="2689000" />
+      <workItem from="1727501013280" duration="3449000" />
     </task>
     <servers />
   </component>

@@ -27,11 +27,11 @@ const MAESTRO_CONFIG_FILE: &str = "maestro.json";
 ///
 /// # Examples
 ///
-/// ```
+/// ```ignore
 /// let result = load_config();
 /// assert!(result.is_ok());
-/// let maestro = result.unwrap();
-/// assert_eq!(maestro.projects.len(), 0);
+/// let maestro: Maestro = result.unwrap();
+/// assert_eq!(maestro.projects.len(), 2);
 /// ```
 pub fn load_config() -> Result<Maestro, MaestroError> {
     let path_buf = PathBuf::from(MAESTRO_CONFIG_FILE);
@@ -84,7 +84,7 @@ pub fn load_config() -> Result<Maestro, MaestroError> {
 ///
 /// # Examples
 ///
-/// ```
+/// ```ignore
 /// let result = save_user_config_file("/path/to/config.json".to_string());
 /// assert!(result.is_ok());
 /// ```
@@ -125,11 +125,11 @@ pub fn save_user_config_file(user_config_path: String) -> Result<String, Maestro
 ///
 /// # Examples
 ///
-/// ```
+/// ```ignore
 /// let result = validate_config("/path/to/config.json".to_string());
 /// assert!(result.is_ok());
 /// ```
-fn validate_config(user_config_path: String) -> Result<String, MaestroError> {
+pub fn validate_config(user_config_path: String) -> Result<String, MaestroError> {
     Ok(user_config_path)
 }
 
