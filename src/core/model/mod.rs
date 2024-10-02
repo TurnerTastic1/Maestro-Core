@@ -1,4 +1,4 @@
 pub mod config;
 pub mod maestro;
-mod project;
+mod workspace;
 pub mod error;

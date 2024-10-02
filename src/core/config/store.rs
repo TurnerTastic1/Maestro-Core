@@ -147,14 +147,16 @@ mod tests {
         let mut file = File::create(user_config_path.clone()).expect("Failed to create test config file");
         let test_config_content = r#"
         {
-            "projects": [
+            "workspaces": [
                 {
-                    "name": "Project A",
-                    "description": "Description for Project A"
+                    "name": "WorkspaceA",
+                    "description": "Description for workspaceA",
+                    "workspace_path": "/path/to/workspaceA"
                 },
                 {
-                    "name": "Project B",
-                    "description": "Description for Project B"
+                    "name": "WorkspaceB",
+                    "description": "Description for workspaceB",
+                    "workspace_path": "/path/to/workspaceB"
                 }
             ]
         }
@@ -171,9 +173,9 @@ mod tests {
         let load_result = load_config();
         assert!(load_result.is_ok());
         let maestro = load_result.unwrap();
-        assert_eq!(maestro.projects.len(), 2);
-        assert_eq!(maestro.projects[0].name, "Project A");
-        assert_eq!(maestro.projects[0].description, "Description for Project A");
+        assert_eq!(maestro.workspaces.len(), 2);
+        assert_eq!(maestro.workspaces[0].name, "WorkspaceA");
+        assert_eq!(maestro.workspaces[0].description, "Description for workspaceA");
 
         // Clean up the files
         fs::remove_file(MAESTRO_CONFIG_FILE ).expect("Failed to delete test maestro config file");

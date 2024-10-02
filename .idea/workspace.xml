@@ -9,7 +9,12 @@
   <component name="ChangeListManager">
     <list default="true" id="add172b7-060c-472c-af21-794f6c542358" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/config/store.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/config/store.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/model/maestro.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/model/maestro.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/model/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/model/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/model/project.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/model/workspace.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,8 +199,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Cargo.Test store::tests" />
-        <item itemvalue="Cargo.Test core::config::store::tests::test_load_config_with_invalid_json" />
         <item itemvalue="Cargo.Test core::config::store::tests::test_save_and_load_config" />
+        <item itemvalue="Cargo.Test core::config::store::tests::test_load_config_with_invalid_json" />
         <item itemvalue="Cargo.Test core::config::store::tests::test_load_config_with_no_saved_file" />
         <item itemvalue="Cargo.Test core::config::store::tests::test_save_config_with_no_write_permission" />
       </list>
@@ -213,11 +218,22 @@
       <option name="presentableId" value="Default" />
       <updated>1727458428048</updated>
       <workItem from="1727458429069" duration="10963000" />
-      <workItem from="1727501013280" duration="3449000" />
+      <workItem from="1727501013280" duration="7065000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/core/config/store.rs</url>
+          <line>172</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
