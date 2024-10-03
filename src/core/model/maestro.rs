@@ -28,7 +28,7 @@ mod tests {
                     name: "WorkspaceA".to_string(),
                     description: "Description for workspaceA".to_string(),
                     workspace_path: "/path/to/workspaceA".to_string(),
-                    last_updated: None
+                    container_working_dir: None,
                 }
             ]
         };
@@ -43,13 +43,13 @@ mod tests {
                     name: "WorkspaceA".to_string(),
                     description: "Description for workspaceA".to_string(),
                     workspace_path: "/path/to/workspaceA".to_string(),
-                    last_updated: None
+                    container_working_dir: None,
                 },
                 Workspace {
                     name: "Workspace B".to_string(),
                     description: "Description for workspaceB".to_string(),
                     workspace_path: "/path/to/workspaceB".to_string(),
-                    last_updated: None
+                    container_working_dir: None,
                 }
             ]
         };

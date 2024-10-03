@@ -1,4 +1,3 @@
-use chrono::{DateTime, Utc};
 use serde::{Serialize, Deserialize};
 use regex::Regex;
 use crate::core::model::error::MaestroError;
@@ -8,7 +7,7 @@ pub struct Workspace {
     pub name: String,
     pub description: String,
     pub workspace_path: String,
-    pub last_updated: Option<DateTime<Utc>>
+    pub container_working_dir: Option<String>,
 }
 
 impl Workspace {
@@ -46,7 +45,7 @@ mod tests {
             name: "WorkspaceA".to_string(),
             description: "Description for workspaceA".to_string(),
             workspace_path: "/path/to/workspaceA".to_string(),
-            last_updated: None
+            container_working_dir: None,
         };
         assert!(workspace.validate().is_ok());
     }
@@ -57,7 +56,7 @@ mod tests {
             name: "Workspace A".to_string(),
             description: "Description for workspaceA".to_string(),
             workspace_path: "workspace".to_string(),
-            last_updated: None
+            container_working_dir: None,
         };
         assert!(workspace.validate().is_err());
         assert!(workspace.validate().unwrap_err().to_string().contains("Name must be a single word"));
@@ -69,7 +68,7 @@ mod tests {
             name: "WorkspaceA".to_string(),
             description: "Description for workspaceA".to_string(),
             workspace_path: "".to_string(),
-            last_updated: None
+            container_working_dir: None,
         };
         assert!(workspace.validate().is_err());
         assert!(workspace.validate().unwrap_err().to_string().contains("Workspace path cannot be empty"));

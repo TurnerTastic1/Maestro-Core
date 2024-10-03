@@ -9,9 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="add172b7-060c-472c-af21-794f6c542358" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/mod.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/model/maestro.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/model/maestro.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/model/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/model/mod.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/model/workspace.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/model/workspace.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -221,7 +219,7 @@
       <option name="presentableId" value="Default" />
       <updated>1727458428048</updated>
       <workItem from="1727458429069" duration="10963000" />
-      <workItem from="1727501013280" duration="14096000" />
+      <workItem from="1727501013280" duration="15146000" />
     </task>
     <servers />
   </component>
