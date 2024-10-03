@@ -6,4 +6,6 @@ pub enum MaestroError {
     SerdeError(String),
     #[error("Config error: {0}")]
     ConfigError(String),
+    #[error("Maestro config validation error: {0}")]
+    MaestroConfigValidationError(String),
 }

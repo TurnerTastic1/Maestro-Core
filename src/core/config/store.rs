@@ -4,7 +4,6 @@
 //! This module includes the following functions:
 //! - `load_config` - Loads the user configuration from a file.
 //! - `save_user_config_file` - Saves the user configuration to a file.
-//! - `validate_config` - Validates the user configuration file.
 
 use std::fs::File;
 use std::path::{PathBuf};
@@ -65,6 +64,9 @@ pub fn load_config() -> Result<Maestro, MaestroError> {
         ))
     })?;
 
+    // Validate the maestro configuration
+    maestro.validate()?;
+
     Ok(maestro)
 }
 
@@ -106,30 +108,6 @@ pub fn save_user_config_file(user_config_path: String) -> Result<String, Maestro
         ))
     })?;
 
-    Ok(user_config_path)
-}
-
-/// Validates the user configuration file.
-///
-/// # Arguments
-///
-/// * `user_config_path` - A string that holds the path to the user configuration file.
-///
-/// # Returns
-///
-/// A `Result` containing the path to the user configuration file if the file is valid.
-///
-/// # Errors
-///
-/// Returns a `MaestroError` if the file is invalid.
-///
-/// # Examples
-///
-/// ```ignore
-/// let result = validate_config("/path/to/config.json".to_string());
-/// assert!(result.is_ok());
-/// ```
-pub fn validate_config(user_config_path: String) -> Result<String, MaestroError> {
     Ok(user_config_path)
 }
 
@@ -213,6 +191,48 @@ mod tests {
         // Assert: Check that the result is an Err and of type MaestroError::SerdeError
         match load_result {
             Err(MaestroError::SerdeError(_)) => assert!(true),
+            _ => assert!(false, "Expected MaestroError::ConfigError"),
+        }
+
+        // Clean up the files
+        fs::remove_file(MAESTRO_CONFIG_FILE ).expect("Failed to delete test maestro config file");
+        fs::remove_file("invalid_user_config.json").expect("Failed to delete test user config file");
+    }
+
+    #[test]
+    #[serial]
+    fn test_load_config_with_invalid_maestro_config() {
+        let user_config_path = "invalid_user_config.json".to_string();
+        let mut file = File::create(user_config_path.clone()).expect("Failed to create test config file");
+        let test_config_content = r#"
+        {
+            "workspaces": [
+                {
+                    "name": "WorkspaceA",
+                    "description": "Description for workspaceA",
+                    "workspace_path": "/path/to/workspaceA"
+                },
+                {
+                    "name": "Workspace B",
+                    "description": "Description for workspaceB",
+                    "workspace_path": "/path/to/workspaceB"
+                }
+            ]
+        }
+        "#;
+
+        file.write_all(test_config_content.as_bytes()).expect("Failed to write to test config file");
+
+        // Save the configuration to the maestro config file
+        let save_result = save_user_config_file(user_config_path.clone());
+        assert!(save_result.is_ok());
+        assert_eq!(save_result.unwrap(), user_config_path);
+
+        // Load the configuration from the maestro config file
+        let load_result = load_config();
+        // Assert: Check that the result is an Err and of type MaestroError::ConfigError
+        match load_result {
+            Err(MaestroError::MaestroConfigValidationError(_)) => assert!(true),
             _ => assert!(false, "Expected MaestroError::ConfigError"),
         }
 
