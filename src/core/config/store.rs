@@ -5,6 +5,7 @@
 //! - `load_config` - Loads the user configuration from a file.
 //! - `save_user_config_file` - Saves the user configuration to a file.
 
+use std::fs;
 use std::fs::File;
 use std::path::{PathBuf};
 use std::io::{BufReader};
@@ -99,7 +100,13 @@ pub fn save_user_config_file(user_config_path: String) -> Result<String, Maestro
         ))
     })?;
 
-    let config = Config::new(user_config_path.clone());
+    // Convert the path to an absolute path
+    let absolute_path = fs::canonicalize(PathBuf::from(user_config_path.to_string()))
+        .map_err(|err|
+            MaestroError::ConfigError(format!("Failed to canonicalize path '{}': {}\nEnsure the file exists", user_config_path, err))
+        )?;
+
+    let config = Config::new(absolute_path.to_str().unwrap().to_string());
 
     serde_json::to_writer_pretty(&file, &config).map_err(|err| {
         MaestroError::SerdeError(format!(
@@ -108,7 +115,7 @@ pub fn save_user_config_file(user_config_path: String) -> Result<String, Maestro
         ))
     })?;
 
-    Ok(user_config_path)
+    Ok(absolute_path.to_str().unwrap().to_string())
 }
 
 #[cfg(test)]
@@ -145,7 +152,7 @@ mod tests {
         // Save the configuration to the maestro config file
         let save_result = save_user_config_file(user_config_path.clone());
         assert!(save_result.is_ok());
-        assert_eq!(save_result.unwrap(), user_config_path);
+        assert!(save_result.unwrap().contains("user_config.json"));
 
         // Load the configuration from the maestro config file
         let load_result = load_config();
@@ -183,7 +190,7 @@ mod tests {
         // Save the configuration to the maestro config file
         let save_result = save_user_config_file(user_config_path.clone());
         assert!(save_result.is_ok());
-        assert_eq!(save_result.unwrap(), user_config_path);
+        assert!(save_result.unwrap().contains("invalid_user_config.json"));
 
         // Load the configuration from the maestro config file
         let load_result = load_config();
@@ -226,7 +233,7 @@ mod tests {
         // Save the configuration to the maestro config file
         let save_result = save_user_config_file(user_config_path.clone());
         assert!(save_result.is_ok());
-        assert_eq!(save_result.unwrap(), user_config_path);
+        assert!(save_result.unwrap().contains("invalid_user_config.json"));
 
         // Load the configuration from the maestro config file
         let load_result = load_config();

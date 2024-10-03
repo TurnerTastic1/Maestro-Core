@@ -9,11 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="add172b7-060c-472c-af21-794f6c542358" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/model/error.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/model/error.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/model/maestro.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/model/maestro.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/model/workspace.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/model/workspace.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +43,7 @@
     "Cargo.Run maestro-core.executor": "Run",
     "Cargo.Test core::config::store::tests::test_load_config_no_config_file.executor": "Run",
     "Cargo.Test core::config::store::tests::test_load_config_with_invalid_json.executor": "Run",
+    "Cargo.Test core::config::store::tests::test_load_config_with_invalid_maestro_config.executor": "Run",
     "Cargo.Test core::config::store::tests::test_load_config_with_no_saved_file.executor": "Run",
     "Cargo.Test core::config::store::tests::test_save_and_load_config.executor": "Run",
     "Cargo.Test core::config::store::tests::test_save_config_with_no_write_permission.executor": "Run",
@@ -78,7 +74,7 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Cargo.Test maestro::tests">
+  <component name="RunManager" selected="Cargo.Test store::tests">
     <configuration name="Run maestro-core" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="buildProfileId" value="dev" />
       <option name="command" value="run --package maestro-core --bin maestro-core" />
@@ -97,42 +93,25 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test core::config::store::tests::test_load_config_with_invalid_maestro_config" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package maestro-core --lib core::config::store::tests::test_load_config_with_invalid_maestro_config -- --exact" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test core::model::workspace::tests::test_empty_workspace_path_workspace" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="command" value="test --package maestro-core --lib core::model::workspace::tests::test_empty_workspace_path_workspace -- --exact" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <envs />
-      <option name="emulateTerminal" value="true" />
-      <option name="channel" value="DEFAULT" />
-      <option name="requiredFeatures" value="true" />
-      <option name="allFeatures" value="false" />
-      <option name="withSudo" value="false" />
-      <option name="buildTarget" value="REMOTE" />
-      <option name="backtrace" value="SHORT" />
-      <option name="isRedirectInput" value="false" />
-      <option name="redirectInputPath" value="" />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test core::model::workspace::tests::test_invalid_workspace" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="test --package maestro-core --lib core::model::workspace::tests::test_invalid_workspace -- --exact" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <envs />
-      <option name="emulateTerminal" value="true" />
-      <option name="channel" value="DEFAULT" />
-      <option name="requiredFeatures" value="true" />
-      <option name="allFeatures" value="false" />
-      <option name="withSudo" value="false" />
-      <option name="buildTarget" value="REMOTE" />
-      <option name="backtrace" value="SHORT" />
-      <option name="isRedirectInput" value="false" />
-      <option name="redirectInputPath" value="" />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test core::model::workspace::tests::test_valid_workspace" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="command" value="test --package maestro-core --lib core::model::workspace::tests::test_valid_workspace -- --exact" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <envs />
       <option name="emulateTerminal" value="true" />
@@ -182,6 +161,23 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test store::tests" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="command" value="test --package maestro-core --lib core::config::store::tests" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test workspace::tests" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="command" value="test --package maestro-core --lib core::model::workspace::tests" />
       <option name="workingDirectory" value="file://$PROJECT_DIR$" />
@@ -201,11 +197,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cargo.Test store::tests" />
+        <item itemvalue="Cargo.Test core::config::store::tests::test_load_config_with_invalid_maestro_config" />
         <item itemvalue="Cargo.Test maestro::tests" />
         <item itemvalue="Cargo.Test workspace::tests" />
         <item itemvalue="Cargo.Test core::model::workspace::tests::test_empty_workspace_path_workspace" />
-        <item itemvalue="Cargo.Test core::model::workspace::tests::test_invalid_workspace" />
-        <item itemvalue="Cargo.Test core::model::workspace::tests::test_valid_workspace" />
       </list>
     </recent_temporary>
   </component>
@@ -221,7 +217,7 @@
       <option name="presentableId" value="Default" />
       <updated>1727458428048</updated>
       <workItem from="1727458429069" duration="10963000" />
-      <workItem from="1727501013280" duration="10822000" />
+      <workItem from="1727501013280" duration="11747000" />
     </task>
     <servers />
   </component>
