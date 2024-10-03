@@ -5,10 +5,10 @@ use crate::core::model::error::MaestroError;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Workspace {
-    pub(crate) name: String,
-    pub(crate) description: String,
-    pub(crate) workspace_path: String,
-    pub(crate) last_updated: Option<DateTime<Utc>>
+    pub name: String,
+    pub description: String,
+    pub workspace_path: String,
+    pub last_updated: Option<DateTime<Utc>>
 }
 
 impl Workspace {
